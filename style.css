@@ -760,7 +760,3 @@ footer {
         right: 20px;
     }
 }
-
-.premium-slider {
-    touch-action: pan-y;
-}
