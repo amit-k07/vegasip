@@ -37,37 +37,40 @@ function showSlide(i) {
 function toggleMenu() {
     document.getElementById("navMenu").classList.toggle("active");
 }
-
 let startX = 0;
 let endX = 0;
 
 const slider = document.querySelector(".premium-slider");
 
 /* TOUCH START */
-slider.addEventListener("touchstart", (e) => {
+slider.addEventListener("touchstart", function(e) {
     startX = e.touches[0].clientX;
 });
 
-/* TOUCH MOVE */
-slider.addEventListener("touchmove", (e) => {
-    endX = e.touches[0].clientX;
+/* TOUCH END */
+slider.addEventListener("touchend", function(e) {
+    endX = e.changedTouches[0].clientX;
+
+    handleSwipe();
 });
 
-/* TOUCH END */
-slider.addEventListener("touchend", () => {
-
+function handleSwipe() {
     let diff = startX - endX;
 
-    // SWIPE LEFT (next)
-    if (diff > 50) {
-        index = (index + 1) % slides.length;
-        showSlide(index);
-    }
+    // minimum swipe distance
+    if (Math.abs(diff) > 50) {
 
-    // SWIPE RIGHT (prev)
-    else if (diff < -50) {
-        index = (index - 1 + slides.length) % slides.length;
-        showSlide(index);
-    }
+        // 👉 LEFT SWIPE → NEXT
+        if (diff > 0) {
+            index = (index + 1) % slides.length;
+            showSlide(index);
+        }
 
+        // 👉 RIGHT SWIPE → PREVIOUS
+        else {
+            index = (index - 1 + slides.length) % slides.length;
+            showSlide(index);
+        }
+    }
+}
 });
