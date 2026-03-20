@@ -3,7 +3,6 @@ body {
     font-family: Arial;
 }
 
-/* NAVBAR */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -12,7 +11,6 @@ body {
     padding: 5px 30px;
 }
 
-/* LOGO */
 .logo {
     display: flex;
     align-items: center;
@@ -30,7 +28,6 @@ body {
     font-weight: bold;
 }
 
-/* MENU */
 nav a {
     color: white;
     margin-left: 20px;
@@ -42,7 +39,6 @@ nav a:hover {
     color: #ff4d00;
 }
 
-/* HERO */
 .hero-section {
     display: flex;
     align-items: center;
@@ -51,7 +47,6 @@ nav a:hover {
     overflow: hidden;
 }
 
-/* HERO BACKGROUND WITH BLUR */
 .hero-section {
     position: relative;
     display: flex;
@@ -60,7 +55,6 @@ nav a:hover {
     overflow: hidden;
 }
 
-/* BACKGROUND IMAGE */
 .hero-section::before {
     content: "";
     position: absolute;
@@ -68,24 +62,22 @@ nav a:hover {
 
     background: url('bg-home.jpeg') no-repeat center/cover;
 
-    filter: blur(5px);          /* 👈 blur yaha control karo */
-    transform: scale(1.1);      /* 👈 edges cut na ho blur ke baad */
+    filter: blur(5px);       
+    transform: scale(1.1);     
 
     z-index: 0;
 }
 
-/* DARK OVERLAY */
 .hero-section::after {
     content: "";
     position: absolute;
     inset: 0;
 
-    background: rgba(0,0,0,0.4);  /* 👈 darkness adjust kar sakte ho */
+    background: rgba(0,0,0,0.4); 
 
     z-index: 1;
 }
 
-/* TEXT & IMAGE UPPER LAYER */
 .hero-text,
 .hero-image {
     position: relative;
@@ -106,7 +98,6 @@ nav a:hover {
     color: #44b5e2;
 }
 
-/* BUTTONS */
 .hero-buttons {
     display: flex;
     gap: 15px;
@@ -129,7 +120,6 @@ nav a:hover {
     background: #25D366;
 }
 
-/* IMAGE */
 .hero-image {
     width: 55%;
     height: 40%;
@@ -141,13 +131,11 @@ nav a:hover {
     object-fit: cover;
 }
 
-/* SECTIONS */
 .section {
     padding: 50px;
     text-align: center;
 }
 
-/* FOOTER */
 footer {
     background: rgb(32, 68, 122);
     color: white;
@@ -155,7 +143,6 @@ footer {
     padding: 10px;
 }
 
-/* ABOUT */
 .about-section {
     display: flex;
     align-items: center;
@@ -198,7 +185,6 @@ footer {
     border-radius: 12px;
 }
 
-/* GRID */
 .flavour-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -207,7 +193,6 @@ footer {
     margin: auto;
 }
 
-/* CARD */
 .flavour-item {
     position: relative;
     background: rgba(255,255,255,0.7);
@@ -219,7 +204,6 @@ footer {
     border: 1px solid rgba(255,255,255,0.4);
 }
 
-/* HOVER EFFECT */
 .flavour-item:hover {
     transform: translateY(-12px) scale(1.02);
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
@@ -233,7 +217,6 @@ footer {
     transition: 0.4s ease;
 }
 
-/* ZOOM EFFECT */
 .flavour-item:hover video,
 .flavour-item:hover img {
     transform: scale(1.1);
@@ -252,7 +235,6 @@ footer {
     line-height: 1.5;
 }
 
-/* UPCOMING */
 .section {
     padding: 70px 40px;
     text-align: center;
@@ -266,7 +248,6 @@ footer {
     position: relative;
 }
 
-/* Underline effect */
 .section h2::after,
 .upcoming-section h2::after {
     content: "";
@@ -302,7 +283,6 @@ footer {
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-/* SLIDER */
 .premium-slider {
     position: relative;
     margin: 40px;
@@ -321,12 +301,11 @@ footer {
     display: block;
 }
 
-/* SLIDER TEXT WHITE */
 .text h2,
 .text p {
     color: white;
 }
-/* SINGLE BG TEXT (FIXED) */
+
 .bg-text {
     position: absolute;
     top: 35%;
@@ -343,7 +322,6 @@ footer {
     animation: slideToCenter 1s ease forwards;
 }
 
-/* CONTENT */
 .content {
     display: flex;
     justify-content: center;
@@ -363,7 +341,6 @@ footer {
     font-size: 40px;
 }
 
-/* IMAGE */
 .image {
     position: absolute;
     left: 50%;
@@ -380,10 +357,9 @@ footer {
     animation: canDrop 1s ease forwards;
 }
 
-/* ARROWS */
 .prev, .next {
     position: absolute;
-    bottom: 60px;   /* 👈 thoda upar */
+    bottom: 60px;   
     
     width: 50px;
     height: 50px;
@@ -404,13 +380,12 @@ footer {
     cursor: pointer;
 }
 
-/* dono right side */
 .next {
     right: 30px;
 }
 
 .prev {
-    right: 90px;   /* 👈 next ke left me */
+    right: 90px;  
 }
 
 .prev:hover, .next:hover {
@@ -420,7 +395,7 @@ footer {
 
 .slider-count {
     position: absolute;
-    bottom: 15px;   /* 👈 arrows ke niche */
+    bottom: 15px;  
     right: 50px;
 
     color: white;
@@ -432,7 +407,6 @@ footer {
     border-radius: 15px;
 }
 
-/* ANIMATIONS */
 @keyframes canDrop {
     0% {
         transform: translateY(-200px);
@@ -455,7 +429,6 @@ footer {
     }
 }
 
-/* FRUITS */
 .fruit-bg {
     position: absolute;
     width: 100%;
@@ -483,7 +456,6 @@ footer {
     100% { transform: translateY(0) rotate(0); }
 }
 
-/* SHOP BUTTON */
 .shop-btn {
     display: inline-block;
     padding: 12px 30px;
@@ -501,7 +473,6 @@ footer {
     transform: scale(1.05);
 }
 
-/* TOP FLAVOUR NAV */
 .flavour-nav {
     position: absolute;
     top: 20px;
