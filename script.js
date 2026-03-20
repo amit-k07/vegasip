@@ -12,7 +12,6 @@ let flavours = document.querySelectorAll(".flavour");
 
 total.innerText = slides.length;
 
-/* SHOW SLIDE */
 function showSlide(i) {
     slides.forEach(s => s.classList.remove("active"));
     slides[i].classList.add("active");
@@ -23,7 +22,6 @@ function showSlide(i) {
     flavours[i].classList.add("active");
 }
 
-/* BUTTON CLICK */
 document.querySelector(".next").onclick = () => {
     index = (index + 1) % slides.length;
     showSlide(index);
@@ -34,24 +32,15 @@ document.querySelector(".prev").onclick = () => {
     showSlide(index);
 };
 
-
-
-
-/* =========================
-   🔥 MOBILE SWIPE START
-========================= */
-
 let startX = 0;
 let endX = 0;
 
 const slider = document.querySelector(".premium-slider");
 
-/* TOUCH START */
 slider.addEventListener("touchstart", function(e) {
     startX = e.touches[0].clientX;
 });
 
-/* TOUCH END */
 slider.addEventListener("touchend", function(e) {
     endX = e.changedTouches[0].clientX;
 
@@ -59,13 +48,11 @@ slider.addEventListener("touchend", function(e) {
 
     if (Math.abs(diff) > 50) {
 
-        // 👉 LEFT SWIPE → NEXT
         if (diff > 0) {
             index = (index + 1) % slides.length;
             showSlide(index);
         }
 
-        // 👉 RIGHT SWIPE → PREVIOUS
         else {
             index = (index - 1 + slides.length) % slides.length;
             showSlide(index);
@@ -73,12 +60,6 @@ slider.addEventListener("touchend", function(e) {
     }
 });
 
-/* =========================
-   🔥 MOBILE SWIPE END
-========================= */
-
-
-/* NAV MENU */
 function toggleMenu() {
     document.getElementById("navMenu").classList.toggle("active");
 }
