@@ -51,6 +51,47 @@ nav a:hover {
     overflow: hidden;
 }
 
+/* HERO BACKGROUND WITH BLUR */
+.hero-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+/* BACKGROUND IMAGE */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: url('bg-home.jpeg') no-repeat center/cover;
+
+    filter: blur(5px);          /* 👈 blur yaha control karo */
+    transform: scale(1.1);      /* 👈 edges cut na ho blur ke baad */
+
+    z-index: 0;
+}
+
+/* DARK OVERLAY */
+.hero-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0,0,0,0.4);  /* 👈 darkness adjust kar sakte ho */
+
+    z-index: 1;
+}
+
+/* TEXT & IMAGE UPPER LAYER */
+.hero-text,
+.hero-image {
+    position: relative;
+    z-index: 2;
+}
+
 .hero-text {
     width: 45%;
     padding-left: 70px;
@@ -58,11 +99,11 @@ nav a:hover {
 
 .hero-text h1 {
     font-size: 42px;
-    color: #d4670e;
+    color: #ff5e01;
 }
 
 .hero-text span {
-    color: #2c8c8c;
+    color: #44b5e2;
 }
 
 /* BUTTONS */
@@ -104,12 +145,6 @@ nav a:hover {
 .section {
     padding: 50px;
     text-align: center;
-}
-
-/* CONTACT */
-.contact {
-    background: #111;
-    color: white;
 }
 
 /* FOOTER */
@@ -265,42 +300,6 @@ footer {
     border-radius: 20px;
     font-weight: bold;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-/* MOBILE */
-@media (max-width: 768px) {
-
-    .hero-section {
-        flex-direction: column;
-    }
-
-    .hero-text {
-        width: 100%;
-        padding: 20px;
-        text-align: center;
-    }
-
-    .hero-image {
-        width: 100%;
-    }
-
-    .hero-image img {
-        height: auto;
-    }
-
-    .about-section {
-        flex-direction: column;
-        padding: 30px;
-    }
-
-    .about-left,
-    .about-card,
-    .about-image {
-        width: 100%;
-    }
-
-    .flavour-grid {
-        grid-template-columns: 1fr;
-    }
 }
 
 /* SLIDER */
@@ -561,44 +560,26 @@ footer {
     cursor: pointer;
 }
 
-/* MOBILE FIX */
-@media (max-width: 768px) {
-
-    /* NAV HIDE */
-    #navMenu {
-        position: absolute;
-        top: 70px;
-        right: -100%;
-        background: rgb(32, 68, 122);
-        width: 220px;
-        flex-direction: column;
-        text-align: center;
-        padding: 20px 0;
-        border-radius: 10px 0 0 10px;
-        transition: 0.4s ease;
-    }
-
-    /* SHOW MENU */
-    #navMenu.active {
-        right: 0;
-    }
-
-    #navMenu a {
-        display: block;
-        margin: 15px 0;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
+.premium-slider {
+    touch-action: pan-y;
 }
 
-
-
-
-
 @media (max-width: 768px) {
 
+    /* NAVBAR */
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .logo span {
+        font-size: 24px;
+    }
+
+     .menu-toggle {
+        display: block;   /* 👈 YE LINE MUST HAI */
+    }
+
+    /* HERO */
     .hero-section {
         flex-direction: column;
         text-align: center;
@@ -610,7 +591,7 @@ footer {
     }
 
     .hero-text h1 {
-        font-size: 26px;
+        font-size: 24px;
         line-height: 1.4;
     }
 
@@ -619,126 +600,81 @@ footer {
         flex-wrap: wrap;
     }
 
-    .hero-image {
+    .hero-image img {
+        height: auto;
+        max-height: 300px;
+    }
+
+    /* ABOUT */
+    .about-section {
+        flex-direction: column;
+        padding: 30px 20px;
+    }
+
+    .about-left,
+    .about-card,
+    .about-image {
         width: 100%;
     }
-}
 
-@media (max-width: 768px) {
+    .about-card {
+        margin: 20px 0;
+    }
+
+    .about-image video {
+        height: 250px;
+    }
+
+    /* GRID */
+    .flavour-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* SLIDER */
+    .premium-slider {
+        margin: 20px;
+    }
 
     .slide {
-        height: auto;
-        padding: 40px 20px;
+        height: 450px;
+        padding: 20px;
     }
 
-    /* BIG BG TEXT FIX */
+    /* BG TEXT */
     .bg-text {
-        font-size: 60px;
-        top: 20%;
-        transform: translate(-50%, -50%);
+        font-size: 55px;
+        top: 30%;
+        left: 50%;
+        transform: translate(-150%, -50%);
     }
-    /* TEXT FIX */
+
+    /* TEXT */
     .text {
-        position: static;
-        width: 100%;
-        margin-top: 20px;
-    }
-
-    .text h2 {
-        font-size: 26px;
-    }
-
-    /* CAN IMAGE FIX */
-    .image {
-        position: static;
-        transform: none;
-        margin-top: 20px;
-    }
-
-    .image img {
+        position: absolute;
+        left: 15px;
+        bottom: 20px;
         width: 180px;
     }
 
-    /* ARROWS FIX */
-    .prev, .next {
-        bottom: 10px;
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-    }
-
-    .prev {
-        right: 70px;
-    }
-
-    .next {
-        right: 20px;
-    }
-
-    /* FLAVOUR NAV FIX */
-    .flavour-nav {
-        gap: 15px;
-        flex-wrap: wrap;
-        top: 10px;
-    }
-
-    .flavour {
-        font-size: 14px;
-    }
-}
-/* MOBILE BUT DESKTOP STYLE */
-@media (max-width: 768px) {
-
-    .slide {
-        height: 500px;   /* same as desktop */
-        padding: 40px;
-    }
-
-    /* CONTENT SAME AS DESKTOP */
-    .content {
-        flex-direction: row !important;
-    }
-
-    /* TEXT LEFT */
-    .text {
-        position: absolute;
-        left: 20px;
-        bottom: 40px;
-        width: 220px;
-    }
-
     .text h2 {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .text p {
         font-size: 12px;
     }
 
-    /* CAN CENTER */
-    .image {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-    }
-
+    /* CAN IMAGE CENTER */
     .image img {
-        width: 180px;
-    }
-
-    /* BG TEXT */
-    .bg-text {
-        font-size: 70px;
-        top: 40%;
-        left: 50%;
-        transform: translate(-150%, -50%);
+        width: 150px;
     }
 
     /* FLAVOUR NAV */
     .flavour-nav {
         top: 10px;
-        gap: 15px;
+        gap: 10px;
+        flex-wrap: wrap;
     }
 
     .flavour {
@@ -747,16 +683,113 @@ footer {
 
     /* ARROWS */
     .prev, .next {
-        bottom: 20px;
-        width: 40px;
-        height: 40px;
+        bottom: 15px;
+        width: 38px;
+        height: 38px;
+        font-size: 14px;
     }
 
     .prev {
-        right: 70px;
+        right: 65px;
     }
 
     .next {
-        right: 20px;
+        right: 15px;
     }
+
+    /* COUNTER */
+    .slider-count {
+        right: 20px;
+        bottom: 5px;
+        font-size: 12px;
+    }
+
+    /* MENU */
+    #navMenu {
+        width: 200px;
+    }
+    @media (max-width: 768px) {
+
+    #navMenu {
+        position: absolute;
+        top: 70px;
+        right: -100%;   /* 👈 screen ke bahar */
+        background: rgb(32, 68, 122);
+        width: 220px;
+
+        display: flex;
+        flex-direction: column;
+
+        text-align: center;
+        padding: 20px 0;
+        border-radius: 10px 0 0 10px;
+
+        transition: 0.4s ease;
+        z-index: 999;
+    }
+
+    /* SHOW MENU */
+    #navMenu.active {
+        right: 0;   /* 👈 click pe andar aayega */
+    }
+
+    #navMenu a {
+        display: block;
+        margin: 15px 0;
+    }
+}
+
+    .navbar {
+    position: relative;
+}
+
+.menu-toggle {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+}
+}
+
+.contact {
+    text-align: center;
+    padding: 80px 20px;
+
+    /* 👇 Light background fix */
+    background: linear-gradient(135deg, #f5f7fa, #e4ecf7);
+}
+
+/* HEADING FIX */
+.contact h2 {
+    color: #222;   /* 👈 black kar diya */
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+/* DESCRIPTION FIX */
+.contact p {
+    color: #555;   /* 👈 grey (visible) */
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+/* CARD */
+.contact-details {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 15px;
+    display: inline-block;
+    min-width: 280px;
+}
+
+/* PHONE TEXT */
+.contact-details p {
+    color: white;
+    margin-bottom: 15px;
+}
+
+/* BUTTONS */
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
